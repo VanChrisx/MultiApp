@@ -1,0 +1,10 @@
+{% include 'partials/task-nav.html' %}
+<div>
+    <h1>Create Task</h1>
+    <form hx-post="{% url 'create-task' %}">
+        {% csrf_token %}
+        {{error}}
+        {{form.as_p}}
+        <button>Create</button>
+    </form>
+</div>

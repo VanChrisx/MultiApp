@@ -1,0 +1,13 @@
+{% include 'partials/task-nav.html' %}
+<div>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <p>{{task.title}}</p>
+            {% if task.description %}
+                <p>{{task.description}}</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
