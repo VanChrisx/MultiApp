@@ -1,7 +1,13 @@
-<div class="align-center col-8 offset d-flex">  
-    <form  action="" class="p-2"><button class="btn btn-secondary">All Tasks</button></form>
-    <form  action="" class="p-2"><button class="btn btn-secondary">Pending Tasks</button></form>
-    <form  action="" class="p-2"><button class="btn btn-secondary">Completed Tasks</button></form>
+<div class="align-center col-8 offset d-flex mt-3" >  
+    <a class="p-2" hx-get="{% url 'all_tasks' %}" hx-target="#tasks-list">
+        <button class="btn btn-secondary">All Tasks</button>
+    </a>
+    <a class="p-2" hx-get="{% url 'pending-tasks' %}" hx-target="#tasks-list">
+        <button class="btn btn-secondary">Pending Tasks</button>
+    </a>
+    <a class="p-2" hx-get="{% url 'completed-tasks' %}" hx-target="#tasks-list">
+        <button class="btn btn-secondary">Completed Tasks</button>
+    </a>
     <form hx-post="{% url 'create-task' %}" hx-target="#tasks-list" class="p-2">
         {% csrf_token %}
         <button class="btn btn-secondary">Create Task</button>

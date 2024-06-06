@@ -15,9 +15,14 @@
 </head>
 <body>
     {% include 'partials/navbar.html' %}
-    <div class="container container__size bg-primary">
+    <div class="container bg-primary">
         {% block content %}
         {% endblock %}
     </div>
+    <script>
+        document.body.addEventListener('htmx:configRequest', function(evt) {
+            evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}' 
+        });
+    </script>
 </body>
 </html>
